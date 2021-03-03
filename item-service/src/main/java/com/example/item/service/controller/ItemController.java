@@ -40,9 +40,22 @@ public class ItemController {
   }
 
   @ResponseStatus(HttpStatus.OK)
+  @GetMapping("/{name}")
+  public ItemDTO get(@PathVariable String name) {
+    return itemService.getItem(name);
+  }
+
+  @ResponseStatus(HttpStatus.OK)
   @PutMapping("/{id}")
   public ItemDTO put(@PathVariable Long id, @RequestBody ItemDTO itemDTO) {
     itemDTO.setId(id);
+    return itemService.saveItem(itemDTO);
+  }
+
+  @ResponseStatus(HttpStatus.OK)
+  @PutMapping("/{name}")
+  public ItemDTO put(@PathVariable String name, @RequestBody ItemDTO itemDTO) {
+    itemDTO.setName(name);
     return itemService.saveItem(itemDTO);
   }
 

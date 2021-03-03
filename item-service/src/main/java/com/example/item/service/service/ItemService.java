@@ -35,6 +35,10 @@ public class ItemService {
     return modelMapper.map(itemRepository.findById(itemId), ItemDTO.class);
   }
 
+  public ItemDTO getItem(String name) {
+    return modelMapper.map(itemRepository.findByName(name), ItemDTO.class);
+  }
+
   public void deleteItem(Long itemId) {
     itemRepository.deleteById(itemId);
   }
