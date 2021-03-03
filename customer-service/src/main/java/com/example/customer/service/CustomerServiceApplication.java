@@ -7,9 +7,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableEurekaClient
 @EnableSwagger2
 @EnableJpaRepositories
-@EnableEurekaClient
 @SpringBootApplication
 public class CustomerServiceApplication implements WebMvcConfigurer {
 
