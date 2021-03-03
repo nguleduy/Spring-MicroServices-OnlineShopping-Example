@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: development
+  application:
+    name: eureka-server
+  cloud:
+    config:
+      uri: http://localhost:5055
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
