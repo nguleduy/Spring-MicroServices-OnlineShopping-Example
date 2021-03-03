@@ -2,6 +2,8 @@ package com.example.item.service.controller;
 
 import com.example.item.service.dto.ItemDTO;
 import com.example.item.service.service.ItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,8 @@ import java.util.List;
 @RestControllerAdvice
 @RestController
 public class ItemController {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(ItemController.class);
 
   @Autowired
   private ItemService itemService;
@@ -73,6 +77,7 @@ public class ItemController {
 
   @ExceptionHandler(Exception.class)
   public ResponseEntity<?> handleException(Throwable ex) {
+    LOGGER.error("There was an error: ", ex);
     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
   }
 }

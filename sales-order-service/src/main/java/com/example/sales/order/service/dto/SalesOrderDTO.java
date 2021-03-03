@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Timestamp;
-import java.util.Set;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,9 +16,9 @@ import java.util.Set;
 public class SalesOrderDTO {
 
   private Long id;
-  private Timestamp orderDate;
+  private Date orderDate;
   private Long custId;
   private String orderDesc;
   private Double totalPrice;
-  private Set<OrderLineItem> orderLineItems;
+  private List<OrderLineItem> orderLineItems;
 }

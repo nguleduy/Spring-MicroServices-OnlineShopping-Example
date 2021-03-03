@@ -13,8 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
-import java.util.Set;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "sales_order")
@@ -29,7 +29,7 @@ public class SalesOrder {
   private Long id;
 
   @NotNull
-  private Timestamp orderDate;
+  private Date orderDate;
 
   @NotNull
   private Long custId;
@@ -38,7 +38,12 @@ public class SalesOrder {
 
   private Double totalPrice;
 
-  @OneToMany(cascade = {CascadeType.ALL})
-  @JoinColumn(name = "id", referencedColumnName = "order_id", insertable = true, updatable = true)
-  private Set<OrderLineItem> orderLineItems;
+  @OneToMany(mappedBy = "salesOrder", cascade = {CascadeType.ALL})
+  @JoinColumn(name = "id", referencedColumnName = "order_id")
+  private List<OrderLineItem> orderLineItems;
+
+  public void setOrderLineItems(List<OrderLineItem> orderLineItems) {
+    this.orderLineItems = orderLineItems;
+    this.orderLineItems.forEach(orderLineItem -> orderLineItem.setSalesOrder(this));
+  }
 }

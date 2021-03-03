@@ -12,7 +12,6 @@ import lombok.Setter;
 public class OrderLineItemDTO {
 
   private Long id;
-  private Long orderId;
   private String itemName;
   private Long itemQuantity;
 }
