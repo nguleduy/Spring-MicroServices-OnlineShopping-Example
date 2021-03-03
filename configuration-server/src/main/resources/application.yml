@@ -3,6 +3,7 @@ spring:
     config:
       server:
         git:
-          uri: https://test.git
+          uri: https://github.com/nguleduy/Spring-MicroServices-OnlineShopping-Configuration.git
+
 server:
-  port: 8088
+  port: 5055
