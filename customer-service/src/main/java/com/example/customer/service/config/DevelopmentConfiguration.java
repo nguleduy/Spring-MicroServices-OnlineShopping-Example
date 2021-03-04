@@ -26,7 +26,7 @@ public class DevelopmentConfiguration {
     DataSource dataSource = new EmbeddedDatabaseBuilder()
             .setType(EmbeddedDatabaseType.H2)
             .setName(databaseName)
-            .addScript("classpath:com/example/customer/config/customer-schema-development.sql")
+            .addScript("db/customer-schema-development.sql")
             .build();
     LOGGER.info("H2 database is running with metadata: {}", dataSource.getConnection().getMetaData().toString());
 

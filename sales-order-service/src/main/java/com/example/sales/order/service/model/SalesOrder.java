@@ -9,7 +9,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -39,7 +38,6 @@ public class SalesOrder {
   private Double totalPrice;
 
   @OneToMany(mappedBy = "salesOrder", cascade = {CascadeType.ALL})
-  @JoinColumn(name = "id", referencedColumnName = "order_id")
   private List<OrderLineItem> orderLineItems;
 
   public void setOrderLineItems(List<OrderLineItem> orderLineItems) {
