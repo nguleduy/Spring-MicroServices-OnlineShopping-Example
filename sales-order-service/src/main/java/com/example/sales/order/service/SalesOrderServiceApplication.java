@@ -4,11 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.kafka.annotation.EnableKafka;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableDiscoveryClient
 @EnableSwagger2
 @EnableJpaRepositories
+@EnableKafka
 @SpringBootApplication
 public class SalesOrderServiceApplication {
 
