@@ -20,7 +20,7 @@ public class CommonConfiguration {
     modelMapper.createTypeMap(OrderLineItemDTO.class, OrderLineItem.class);
 
     TypeMap<CustomerMessageListener.CustomerListenerDTO, Customer> typeMap = modelMapper.createTypeMap(CustomerMessageListener.CustomerListenerDTO.class, Customer.class);
-    typeMap.addMappings(new PropertyMap<>() {
+    typeMap.addMappings(new PropertyMap<CustomerMessageListener.CustomerListenerDTO, Customer>() {
       @Override
       protected void configure() {
         map().setCustEmail(source.getEmail());

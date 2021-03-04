@@ -16,7 +16,7 @@ public class CustomerMessageListener {
   @Autowired
   private CustomerService customerService;
 
-  @KafkaListener(topics = "customer-created")
+  @KafkaListener(topics = "customer-created", groupId = "test-group")
   public void handle(String json) {
     Gson gson = new Gson();
     CustomerListenerDTO customer = gson.fromJson(json, CustomerListenerDTO.class);
